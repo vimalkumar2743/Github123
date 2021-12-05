@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-     name: testservice1
+     name: testservice123
 spec:
   ports:
   - nodePort: 30001
