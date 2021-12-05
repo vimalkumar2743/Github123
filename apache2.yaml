@@ -1,0 +1,24 @@
+- name: Install a apache2 package
+  hosts: all
+  become: true
+  tasks:
+  - name: Install apache package
+    apt: 
+      name: apache2 
+      state: present
+
+  - name: Starting an apache2 service
+    svc:
+      name: apache2
+      state: started
+
+  - name: Enabling an apache2 service
+    svc:
+      enabled: apache2
+      state: started
+
+  - name: Removing "apache2" package
+    apt:  
+      name: apache2
+      state: absent
+

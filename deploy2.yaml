@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy2
+  labels:
+    app: deploy2
+spec:
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+        claimName: pvc1
+  selector:
+    matchLabels:
+      app: deploy2
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: deploy2
+spec:
+      containers:
+        - image: nginx
+          name: container2
+          ports:
+          - containerPort: 80
+          volumeMounts:
+          - name: storage
+            mountPath: /usr/share/nginx/html

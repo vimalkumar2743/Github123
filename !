@@ -1,0 +1,10 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod123
+spec: 
+  nodeselector: 
+    node: 2
+  containers:
+  - name: container1
+    image: nginx

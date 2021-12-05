@@ -1,0 +1,27 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: multicontainerpodvolume1
+spec:
+  nodeSelector:
+    label: node2
+  volumes:
+  - name: volume1
+    emptyDir: {}
+  containers:
+  - name: container1
+    image: nginx
+    volumeMounts:
+    - name: volume1
+      mountPath: /usr/share/nginx/html
+  - name: container2
+    image: fluentd
+    volumeMounts:
+    - name: volume1
+      mountPath: /tmp
+    command: ["/bin/sh", "-c"]
+    args: 
+      - while true; do
+          date >> /tmp/index.html;
+          sleep 1;
+        done

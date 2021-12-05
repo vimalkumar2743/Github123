@@ -1,0 +1,7 @@
+---
+- name: Create a container
+  hosts: all
+  become: true
+  tasks:
+  - name: To create a docker container
+    command: "docker run -d nginx"

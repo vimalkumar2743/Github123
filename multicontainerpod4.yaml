@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: multicontainerpod4
+spec:
+  nodeSelector:
+    label: node1
+  containers:
+  - name: container6
+    image: nginx
+  - name: container8
+    image: fluentd

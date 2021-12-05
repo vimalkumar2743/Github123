@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata: 
+  name: pvc1
+  labels:
+   app: pvc
+spec:
+  storageClassName: vim
+  accessModes:
+   - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
